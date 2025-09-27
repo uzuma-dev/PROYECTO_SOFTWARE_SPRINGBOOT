@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("COMBUSTION")
-public class Combustion extends Vehiculo {
+public class Combustion extends Vehiculo implements Conducible {
     private double capacidadTanque; // litros
     
     public Combustion() {
@@ -34,6 +34,7 @@ public class Combustion extends Vehiculo {
         System.out.println(getMarca() + " " + getModelo() + " repostando " + litros + " litros (tanque: " + capacidadTanque + "L).");
     }
     
+    @Override
     public void conducir() {
         System.out.println(getMarca() + " " + getModelo() + " se conduce manualmente (combustión).");
     }

@@ -5,7 +5,7 @@ import jakarta.persistence.Entity;
 
 @Entity
 @DiscriminatorValue("HIBRIDO")
-public class Hibrido extends Vehiculo {
+public class Hibrido extends Vehiculo  implements Autonomo{
     private double eficienciaEnergetica; // km/l o equivalente
     private String modoActual = "hibrido"; // "electrico" | "combustion" | "hibrido"
     
@@ -40,10 +40,12 @@ public class Hibrido extends Vehiculo {
         System.out.println(getMarca() + " " + getModelo() + " cambió a modo: " + modoActual);
     }
     
+    @Override
     public void activarPilotoAutomatico() {
         System.out.println(getMarca() + " " + getModelo() + " -> piloto automático activado.");
     }
     
+    @Override
     public void desactivarPilotoAutomatico() {
         System.out.println(getMarca() + " " + getModelo() + " -> piloto automático desactivado.");
     }
